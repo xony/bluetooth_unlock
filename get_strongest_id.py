@@ -43,7 +43,7 @@ def device_inquiry_with_with_rssi(sock):
         print "packet: "
         printpacket(pkt)
         ptype, event, plen = struct.unpack("BBB", pkt[:3])
-        if event == bluez.EVT_EXTENDED_INQUIRY_RESULT:
+        if event == 0x2F:
             pkt = pkt[3:]
             nrsp = struct.unpack("B", pkt[0])[0]
             for i in range(nrsp):

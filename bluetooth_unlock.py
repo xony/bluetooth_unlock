@@ -162,6 +162,8 @@ def create_acl_conn(sock):
 def cancel_acl_conn(sock):
     os.system("hciconfig hci0 down")
     os.system("hciconfig hci0 up")
+    os.system("rfkill block bluetooth")
+    os.system("rfkill unblock bluetooth")
 
 def cancel_acl_conn_old(sock):
     # save current filter
